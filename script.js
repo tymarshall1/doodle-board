@@ -17,4 +17,4 @@ function drawOnGrid(square) {
   square.classList.add("draw");
 }
 
-createGrid(16);
+createGrid(64);
