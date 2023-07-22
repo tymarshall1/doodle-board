@@ -1,10 +1,7 @@
 let gridSize = 50;
 
 const gridResizeBtn = document.querySelector("#gridResizer");
-gridResizeBtn.addEventListener("click", () => {
-  clearGrid();
-  createGrid(gridSize);
-});
+gridResizeBtn.addEventListener("click", clearAndRedrawGrid);
 
 const slider = document.querySelector("#myRange");
 slider.oninput = () => {
@@ -13,6 +10,9 @@ slider.oninput = () => {
     "#sliderValue"
   ).textContent = `${slider.value} x ${slider.value}`;
 };
+
+const clearBtn = document.querySelector("#clearGrid");
+clearBtn.addEventListener("click", clearAndRedrawGrid);
 
 function createGrid(size) {
   const gridContainer = document.querySelector("#gridContainer");
@@ -27,6 +27,11 @@ function createGrid(size) {
     }
     gridContainer.appendChild(row);
   }
+}
+
+function clearAndRedrawGrid() {
+  clearGrid();
+  createGrid(gridSize);
 }
 
 function drawOnGrid(square) {
