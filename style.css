@@ -32,12 +32,20 @@ footer {
 
 button {
   font-family: "Press Start 2P", cursive, sans-serif;
-  padding: 1em 3em;
+  padding: 1em 2em;
   border-radius: 10px;
   background-color: #f9f5eb;
   color: #ea5455;
   border: none;
-  word-break: break-all;
+  width: 95%;
+}
+
+button:hover {
+  background-color: #e4dccf;
+}
+
+hr {
+  width: 80%;
 }
 
 .content-container {
@@ -49,6 +57,7 @@ button {
 
 .button-container {
   flex: 1;
+  text-align: center;
   background-color: #002b5b;
   display: flex;
   flex-direction: column;
@@ -59,6 +68,39 @@ button {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.pens,
+.resize-control {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.pens h2,
+.resize-control h2 {
+  color: #ea5455;
+}
+
+.pens {
+  flex: 1;
+}
+
+.resize-control {
+  flex: 1;
+}
+
+.resize-control p {
+  margin: 0;
+  padding: 0;
+  color: #ea5455;
+}
+
+.resize-control input {
+  margin: 0;
+  padding: 0;
 }
 
 .slider {
