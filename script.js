@@ -1,3 +1,19 @@
+let gridSize = 50;
+
+const gridResizeBtn = document.querySelector("#gridResizer");
+gridResizeBtn.addEventListener("click", () => {
+  clearGrid();
+  createGrid(gridSize);
+});
+
+const slider = document.querySelector("#myRange");
+slider.oninput = () => {
+  gridSize = slider.value;
+  document.querySelector(
+    "#sliderValue"
+  ).textContent = `${slider.value} x ${slider.value}`;
+};
+
 function createGrid(size) {
   const gridContainer = document.querySelector("#gridContainer");
   for (let i = 0; i < size; i++) {
@@ -17,4 +33,14 @@ function drawOnGrid(square) {
   square.classList.add("draw");
 }
 
-createGrid(64);
+function clearGrid() {
+  const grid = document.querySelector("#gridContainer");
+  let gridRows = grid.lastElementChild;
+
+  while (gridRows) {
+    grid.removeChild(gridRows);
+    gridRows = grid.lastElementChild;
+  }
+}
+
+createGrid(gridSize);
