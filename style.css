@@ -36,7 +36,7 @@ button {
   border-radius: 10px;
   background-color: #f9f5eb;
   color: #ea5455;
-  border: none;
+  border: 3px solid #002b5b;
   width: 95%;
 }
 
@@ -45,7 +45,7 @@ button:hover {
 }
 
 hr {
-  width: 80%;
+  width: 90%;
 }
 
 .content-container {
@@ -91,6 +91,7 @@ hr {
 
 .pens {
   flex: 1;
+  gap: 1em;
 }
 
 .resize-control {

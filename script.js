@@ -25,13 +25,23 @@ document
   .querySelector("#clearGrid")
   .addEventListener("click", clearAndRedrawGrid);
 
-document
-  .querySelector("#blackPen")
-  .addEventListener("click", () => (colorChoice = "black"));
+const chooseColorBtn = document.querySelector("#chooseColorBtn");
+chooseColorBtn.addEventListener("click", (e) => {
+  addBtnBorder(e);
+});
 
-document
-  .querySelector("#eraserPen")
-  .addEventListener("click", () => (colorChoice = "#f9f5eb"));
+const blackPenBtn = document.querySelector("#blackPen");
+blackPenBtn.style.border = "3px solid #ea5455";
+blackPenBtn.addEventListener("click", (e) => {
+  colorChoice = "black";
+  addBtnBorder(e);
+});
+
+const eraserBtn = document.querySelector("#eraserPen");
+eraserBtn.addEventListener("click", (e) => {
+  colorChoice = "#f9f5eb";
+  addBtnBorder(e);
+});
 
 function createGrid(size) {
   gridContainer = document.querySelector("#gridContainer");
@@ -68,6 +78,22 @@ function clearAndRedrawGrid() {
 function drawOnGrid(e) {
   if (e.target.classList.contains("square")) {
     e.target.style.backgroundColor = colorChoice;
+  }
+}
+
+function addBtnBorder(e) {
+  if (e.target.id === "colorChooser") {
+    chooseColorBtn.style.border = "3px solid #ea5455";
+    eraserBtn.style.border = "3px solid #002b5b";
+    blackPenBtn.style.border = "3px solid #002b5b";
+  } else if (e.target.id === "blackPen") {
+    chooseColorBtn.style.border = "3px solid #002b5b";
+    eraserBtn.style.border = "3px solid #002b5b";
+    blackPenBtn.style.border = "3px solid #ea5455";
+  } else if (e.target.id == "eraserPen") {
+    chooseColorBtn.style.border = "3px solid #002b5b";
+    eraserBtn.style.border = "3px solid #ea5455";
+    blackPenBtn.style.border = "3px solid #002b5b";
   }
 }
 
