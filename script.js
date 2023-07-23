@@ -1,9 +1,6 @@
 let gridSize = 50;
-let timer = null;
 let gridContainer;
-
-const gridResizeBtn = document.querySelector("#gridResizer");
-gridResizeBtn.addEventListener("click", clearAndRedrawGrid);
+let colorChoice = "black";
 
 const slider = document.querySelector("#myRange");
 slider.oninput = () => {
@@ -13,8 +10,28 @@ slider.oninput = () => {
   ).textContent = `${slider.value} x ${slider.value}`;
 };
 
-const clearBtn = document.querySelector("#clearGrid");
-clearBtn.addEventListener("click", clearAndRedrawGrid);
+const chooseColorInput = document.querySelector("#colorChooser");
+chooseColorInput.oninput = () => (colorChoice = chooseColorInput.value);
+
+document.querySelector(
+  "#sliderValue"
+).textContent = `${gridSize} x ${gridSize}`;
+
+document
+  .querySelector("#gridResizer")
+  .addEventListener("click", clearAndRedrawGrid);
+
+document
+  .querySelector("#clearGrid")
+  .addEventListener("click", clearAndRedrawGrid);
+
+document
+  .querySelector("#blackPen")
+  .addEventListener("click", () => (colorChoice = "black"));
+
+document
+  .querySelector("#eraserPen")
+  .addEventListener("click", () => (colorChoice = "#f9f5eb"));
 
 function createGrid(size) {
   gridContainer = document.querySelector("#gridContainer");
@@ -34,7 +51,7 @@ createGrid(gridSize);
 gridContainer.addEventListener("mousedown", (e) => {
   e.preventDefault();
   if (e.target.classList.contains("square")) {
-    e.target.classList.add("draw");
+    drawOnGrid(e);
     gridContainer.addEventListener("mouseover", drawOnGrid);
   }
 });
@@ -50,7 +67,7 @@ function clearAndRedrawGrid() {
 
 function drawOnGrid(e) {
   if (e.target.classList.contains("square")) {
-    e.target.classList.add("draw");
+    e.target.style.backgroundColor = colorChoice;
   }
 }
 

@@ -14,9 +14,12 @@
       <div class="button-container">
         <div class="pens">
           <h2>Pens</h2>
-          <button>Black</button>
-          <button>Eraser</button>
-          <button>Choose Color</button>
+          <button id="blackPen">Black</button>
+          <button id="eraserPen">Eraser</button>
+          <button>
+            Choose Color
+            <input type="color" class="color-chooser" id="colorChooser" />
+          </button>
           <button id="clearGrid">Clear Grid</button>
         </div>
         <hr />
@@ -30,7 +33,7 @@
             class="slider"
             id="myRange"
           />
-          <p id="sliderValue">50 x 50</p>
+          <p id="sliderValue"></p>
           <button id="gridResizer">Resize Grid</button>
         </div>
       </div>
