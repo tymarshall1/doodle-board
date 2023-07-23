@@ -82,18 +82,21 @@ function drawOnGrid(e) {
 }
 
 function addBtnBorder(e) {
+  const redBorder = "3px solid #ea5455";
+  const blueBorder = "3px solid #002b5b";
+
   if (e.target.id === "colorChooser") {
-    chooseColorBtn.style.border = "3px solid #ea5455";
-    eraserBtn.style.border = "3px solid #002b5b";
-    blackPenBtn.style.border = "3px solid #002b5b";
+    chooseColorBtn.style.border = redBorder;
+    eraserBtn.style.border = blueBorder;
+    blackPenBtn.style.border = blueBorder;
   } else if (e.target.id === "blackPen") {
-    chooseColorBtn.style.border = "3px solid #002b5b";
-    eraserBtn.style.border = "3px solid #002b5b";
-    blackPenBtn.style.border = "3px solid #ea5455";
+    chooseColorBtn.style.border = blueBorder;
+    eraserBtn.style.border = blueBorder;
+    blackPenBtn.style.border = redBorder;
   } else if (e.target.id == "eraserPen") {
-    chooseColorBtn.style.border = "3px solid #002b5b";
-    eraserBtn.style.border = "3px solid #ea5455";
-    blackPenBtn.style.border = "3px solid #002b5b";
+    chooseColorBtn.style.border = blueBorder;
+    eraserBtn.style.border = redBorder;
+    blackPenBtn.style.border = blueBorder;
   }
 }
 
